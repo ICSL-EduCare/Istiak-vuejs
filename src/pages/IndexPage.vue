@@ -1,65 +1,222 @@
 <template>
-  <div class="window-height row">
-    
-    <!-- First Div: Login Page (Left Side) -->
-    <div class="col-12 col-md-6 flex flex-center q-pa-xl bg-white">
-      
-      <!-- Form Container -->
-      <div style="width: 100%; max-width: 400px;">
-        <div class="text-h4 text-weight-bold q-mb-xs">Welcome back</div>
-        <div class="text-grey-7 q-mb-lg">Please enter your details</div>
+  <div class="q-pa-md flex flex-center full-height">
 
-        <!-- Email Input -->
-        <div class="q-mb-md">
-          <div class="text-weight-medium q-mb-xs">Email address</div>
-          <q-input outlined v-model="email" dense placeholder="Enter your email" />
-        </div>
+    <div class="row full-width" style="max-width: 1400px;">
 
-        <!-- Password Input -->
-        <div class="q-mb-md">
-          <div class="text-weight-medium q-mb-xs">Password</div>
-          <q-input outlined v-model="password" type="password" dense placeholder="Enter your password" />
-        </div>
+      <div class="col-8">
 
-        <!-- Remember Me & Forgot Password -->
-        <div class="row items-center justify-between q-mb-lg">
-          <q-checkbox v-model="remember" label="Remember for 30 days" dense color="deep-purple-7" />
-          <a href="#" class="text-deep-purple-7 text-weight-medium" style="text-decoration: none; font-size: 13px;">Forgot password</a>
-        </div>
+        <q-card class="left-card">
 
-        <!-- Sign In Button -->
-        <q-btn unelevated color="deep-purple-7" class="full-width q-mb-md" label="Sign in" no-caps />
-        
-        <!-- Sign in with Google Button -->
-        <q-btn outline color="grey-4" text-color="dark" class="full-width q-mb-lg" no-caps>
-          <q-img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" width="20px" height="20px" class="q-mr-sm" />
-          Sign in with Google
-        </q-btn>
+          <div class="row items-center q-pa-md">
 
-        <!-- Sign Up Link -->
-        <div class="text-center text-grey-7 text-caption">
-          Don't have an account? <a href="#" class="text-deep-purple-7 text-weight-medium" style="text-decoration: none;">Sign up</a>
-        </div>
+            <div class="logo q-mr-lg">
+              <div class="text-purple q-gutter-md" style="font-size: 2em">
+                <q-icon name="shopping_cart" color="red-5" size="40px" />
+              </div>
+            </div>
+
+            <div class="row items-center q-gutter-md">
+
+              <q-btn flat label="SERVICES" no-caps />
+              <q-btn flat label="OFFICES" no-caps />
+              <q-btn flat label="TEAM" no-caps />
+              <q-btn flat label="PHILOSOPHY" no-caps />
+              <q-btn flat label="SPACES" no-caps />
+
+            </div>
+
+          </div>
+
+
+          <div class="image-area">
+
+            <div class="circle"></div>
+
+            <img
+             :src="Image1"
+             class="person-image"
+            alt="Person"
+          />
+
+          </div>
+
+
+          <div class="team">
+
+            <div>OUR TEAM</div>
+
+            <q-separator class="title-line" />
+
+            <div class="name">
+              Istiak Abedin
+            </div>
+
+            <div class="job">
+              Machine Learning<br>
+              Researcher
+            </div>
+
+            <a href="#">
+              Explore
+            </a>
+
+          </div>
+
+        </q-card>
+
       </div>
-    </div>
 
-    <!-- Second Div: Image Background (Right Side) -->
-    <div class="col-12 col-md-6 q-pa-none">
-      <!-- Image is set to cover the entire right column -->
-      <q-img 
-        src="login-illustration.png" 
-        class="fit"
-        fit="cover"
-      />
+
+      <div class="col-4">
+
+        <q-card class="right-card">
+
+          <q-btn
+            outline
+            color="white"
+            label="LOGIN"
+            no-caps
+            class="login-btn"
+          />
+
+          <div class="content">
+
+            <div class="title">
+              Your legal advisers
+              <br>
+              for the problems
+              <br>
+              of this century
+            </div>
+
+            <div class="subtitle">
+              We offer solutions adapted to
+              <br>
+              today's needs
+            </div>
+
+            <q-btn
+              color="white"
+              text-color="primary"
+              label="VIEW MORE"
+              no-caps
+              class="view-btn"
+            />
+
+          </div>
+
+        </q-card>
+
+      </div>
+
     </div>
 
   </div>
 </template>
 
+
 <script setup>
 import { ref } from 'vue'
+import Image1 from 'src/assets/Image1.png'
 
-const email = ref('')
-const password = ref('')
-const remember = ref(false)
+const tab = ref('offices')
 </script>
+
+
+<style lang="sass" scoped>
+
+.left-card
+  height: 770px
+  position: relative
+
+.right-card
+  height: 770px
+  background: #ff6266
+  position: relative
+
+.image-area
+  position: absolute
+  top: 150px
+  left: 55%
+  transform: translateX(-50%)
+  width: 500px
+  height: 480px
+
+.circle
+  width: 310px
+  height: 310px
+  background: #ff6266
+  border-radius: 50%
+  position: absolute
+  left: 170px
+  top: 70px
+  z-index: 1
+
+.person-image
+  position: absolute
+  width: 300px
+  height: auto
+  left: 180px
+  top: 50px
+  z-index: 2
+  transform: scale(1.25)
+  transform-origin: bottom center
+
+.team
+  position: absolute
+  left: 40px
+  top: 330px
+  z-index: 3
+
+
+.title-line
+  width: 105px
+  margin: 9px 0 20px
+  background: #333333
+
+
+.name
+  margin-top: 15px
+  color: grey
+
+
+.job
+  font-size: 20px
+  margin: 8px 0 15px
+
+
+.team a
+  color: #ff6266
+
+
+.login-btn
+  position: absolute
+  top: 30px
+  right: 30px
+  width: 105px
+  height: 40px
+  border-radius: 0 16px 0 16px
+
+
+.view-btn
+  width: 150px
+  height: 48px
+  border-radius: 0 22px 0 22px
+
+
+.content
+  position: absolute
+  top: 170px
+  left: 50px
+  color: white
+
+
+.title
+  font-size: 30px
+  font-weight: bold
+
+
+.subtitle
+  margin: 20px 0 35px
+
+</style>
